@@ -2,6 +2,7 @@
 
 export(LearnerClassifLiblineaRL1L2SVC)
 export(LearnerClassifLiblineaRL2L1SVC)
+export(LearnerClassifLiblineaRL2L2SVC)
 import(data.table)
 import(mlr3misc)
 import(paradox)

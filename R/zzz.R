@@ -13,4 +13,5 @@
   # add the learner to the dictionary
   x$add("classif.liblinearl2l1svc", LearnerClassifLiblineaRL2L1SVC)
   x$add("classif.liblinearl1l2svc", LearnerClassifLiblineaRL1L2SVC)
+  x$add("classif.liblinearl2l2svc", LearnerClassifLiblineaRL2L2SVC)
 } # nocov end
