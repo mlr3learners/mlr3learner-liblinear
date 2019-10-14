@@ -40,7 +40,7 @@ LearnerClassifLiblineaRL1L2SVC = R6Class("LearnerClassifLiblineaRL1L2SVC", inher
    predict_internal = function(task) {
      newdata = task$data(cols = task$feature_names)
 
-     p = invoke(predict, self$model, newx = newdata, type = type)
+     p = invoke(predict, self$model, newx = newdata)
      PredictionClassif$new(task = task, response = p$predictions)
    }
   )
