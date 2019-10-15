@@ -7,7 +7,7 @@
 #' A [mlr3::LearnerClassif] for a L2-Regularized L2-Loss Support Vector Classification implemented in [LiblineaR::LiblineaR()] in package \CRANpkg{LiblineaR}.
 #'
 #' @note
-#' If number of records > number of features `type = 2` is faster than `type = 1` (Hsu et al. 2016)\cr
+#' If number of records > number of features `type = 2` is faster than `type = 1` (Hsu et al. 2016).\cr
 #' If `epsilon` is missing and `type = 1` (default), `epsilon` is set to `0.1`. If `type = 2`, `epsilon` is set to `0.01`.
 #'
 #' @references
