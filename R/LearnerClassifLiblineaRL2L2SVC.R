@@ -27,7 +27,8 @@ LearnerClassifLiblineaRL2L2SVC = R6Class("LearnerClassifLiblineaRL2L2SVC", inher
          ParamDbl$new(id = "bias", default = 1, tags = "train"),
          ParamFct$new(id = "type", default = "1", levels = c("1", "2"), tags = "train"),
          ParamInt$new(id = "cross", default = 0L, lower = 0L, tags = "train"),
-         ParamLgl$new(id = "verbose", default = FALSE, tags = "train")
+         ParamLgl$new(id = "verbose", default = FALSE, tags = "train"),
+         ParamUty$new(id = "wi", default = NULL, tags = "train")
        )
      )
 
