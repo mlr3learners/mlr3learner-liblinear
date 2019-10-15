@@ -17,4 +17,6 @@
   x$add("classif.liblinearl1logreg", LearnerClassifLiblineaRL1LogReg)
   x$add("classif.liblinearl2logreg", LearnerClassifLiblineaRL2LogReg)
   x$add("classif.liblinearmulticlasssvc", LearnerClassifLiblineaRMultiClassSVC)
+  x$add("regr.liblinearl2l1svr", LearnerRegrLiblineaRL2L1SVR)
+  x$add("regr.liblinearl2l2svr", LearnerRegrLiblineaRL2L2SVR)
 } # nocov end
