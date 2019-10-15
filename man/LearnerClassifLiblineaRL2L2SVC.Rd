@@ -13,7 +13,8 @@ LearnerClassifLiblineaRL2L2SVC
 A \link[mlr3:LearnerClassif]{mlr3::LearnerClassif} for a L2-Regularized L2-Loss Support Vector Classification implemented in \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} in package \CRANpkg{LiblineaR}.
 }
 \note{
-If number of records > number of features \code{type = 2} is faster than \code{type = 1} (Hsu et al. 2016)
+If number of records > number of features \code{type = 2} is faster than \code{type = 1} (Hsu et al. 2016)\cr
+If \code{epsilon} is missing and \code{type = 1} (default), \code{epsilon} is set to \code{0.1}. If \code{type = 2}, \code{epsilon} is set to \code{0.01}.
 }
 \references{
 C-W. Hsu, Chang C-C., Lin and C-J (2016)\cr

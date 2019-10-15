@@ -7,7 +7,8 @@
 #' A [mlr3::LearnerClassif] for a L2-Regularized L2-Loss Support Vector Classification implemented in [LiblineaR::LiblineaR()] in package \CRANpkg{LiblineaR}.
 #'
 #' @note
-#' If number of records > number of features `type = 2` is faster than `type = 1` (Hsu et al. 2016)
+#' If number of records > number of features `type = 2` is faster than `type = 1` (Hsu et al. 2016)\cr
+#' If `epsilon` is missing and `type = 1` (default), `epsilon` is set to `0.1`. If `type = 2`, `epsilon` is set to `0.01`.
 #'
 #' @references
 #' C-W. Hsu, Chang C-C., Lin and C-J (2016)\cr
@@ -22,7 +23,7 @@ LearnerClassifLiblineaRL2L2SVC = R6Class("LearnerClassifLiblineaRL2L2SVC", inher
      ps = ParamSet$new(
        params = list(
          ParamDbl$new(id = "cost", default = 1, lower = 0, tags = "train"),
-         ParamDbl$new(id = "epsilon", default = 0.1, lower = 0, tags = "train"),
+         ParamDbl$new(id = "epsilon", default = NULL, special_vals = list(NULL), lower = 0, tags = "train"), # Package default depends on the type parameter
          ParamDbl$new(id = "bias", default = 1, tags = "train"),
          ParamFct$new(id = "type", default = "1", levels = c("1", "2"), tags = "train")
        )
