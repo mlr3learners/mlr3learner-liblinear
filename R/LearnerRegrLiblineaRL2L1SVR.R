@@ -36,8 +36,8 @@ LearnerRegrLiblineaRL2L1SVR= R6Class("LearnerRegrLiblineaRL2L1SVR", inherit = Le
      train = data[,task$feature_names, with=FALSE]
      target = data[,task$target_names, with=FALSE]
 
-     if(is.null(pars$values$svr_eps)) {
-        pars$values$svr_eps = 0.1
+     if(is.null(pars$svr_eps)) {
+        pars$svr_eps = 0.1
      }
 
      invoke(LiblineaR::LiblineaR, data = train, target = target, type =13L, .args = pars)
