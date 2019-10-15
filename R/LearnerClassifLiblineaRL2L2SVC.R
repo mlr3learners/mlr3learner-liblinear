@@ -25,7 +25,9 @@ LearnerClassifLiblineaRL2L2SVC = R6Class("LearnerClassifLiblineaRL2L2SVC", inher
          ParamDbl$new(id = "cost", default = 1, lower = 0, tags = "train"),
          ParamDbl$new(id = "epsilon", default = NULL, special_vals = list(NULL), lower = 0, tags = "train"), # Package default depends on the type parameter
          ParamDbl$new(id = "bias", default = 1, tags = "train"),
-         ParamFct$new(id = "type", default = "1", levels = c("1", "2"), tags = "train")
+         ParamFct$new(id = "type", default = "1", levels = c("1", "2"), tags = "train"),
+         ParamInt$new(id = "cross", default = 0L, lower = 0L, tags = "train"),
+         ParamLgl$new(id = "verbose", default = FALSE, tags = "train")
        )
      )
 

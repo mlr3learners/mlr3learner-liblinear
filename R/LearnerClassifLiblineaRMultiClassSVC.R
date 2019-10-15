@@ -14,7 +14,9 @@ LearnerClassifLiblineaRMultiClassSVC = R6Class("LearnerClassifLiblineaRMultiClas
         params = list(
           ParamDbl$new(id = "cost", default = 1, lower = 0, tags = "train"),
           ParamDbl$new(id = "epsilon", default = 0.1, lower = 0, tags = "train"),
-          ParamDbl$new(id = "bias", default = 1, tags = "train")
+          ParamDbl$new(id = "bias", default = 1, tags = "train"),
+          ParamInt$new(id = "cross", default = 0L, lower = 0L, tags = "train"),
+          ParamLgl$new(id = "verbose", default = FALSE, tags = "train")
         )
       )
 
