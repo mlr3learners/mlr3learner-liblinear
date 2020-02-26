@@ -1,10 +1,9 @@
 #' @title L2-Regularized L2-Loss Support Vector Classification
 #'
-#' @aliases mlr_learners_classif.liblinearl2l2svc
-#' @format [R6::R6Class] inheriting from [mlr3::LearnerClassif].
+#' @name mlr_learners_classif.liblinearl2l2svc
 #'
 #' @description
-#' A [mlr3::LearnerClassif] for a L2-Regularized L2-Loss Support Vector Classification implemented in [LiblineaR::LiblineaR()] in package \CRANpkg{LiblineaR}.
+#' A [mlr3::LearnerClassif] for a L2-Regularized L2-Loss Support Vector Classification implemented in [LiblineaR::LiblineaR()] from package \CRANpkg{LiblineaR}.
 #'
 #' @note
 #' If number of records > number of features `type = 2` is faster than `type = 1` (Hsu et al. 2016).\cr
@@ -15,54 +14,62 @@
 #' A Practical Guide to Support Vector Classification\cr
 #' \url{https://www.csie.ntu.edu.tw/~cjlin/papers/guide/guide.pdf}\cr
 #'
+#' @templateVar id classif.liblinearl2l2svc
 #'
 #' @export
-LearnerClassifLiblineaRL2L2SVC = R6Class("LearnerClassifLiblineaRL2L2SVC", inherit = LearnerClassif,
- public = list(
-   initialize = function() {
-     ps = ParamSet$new(
-       params = list(
-         ParamDbl$new(id = "cost", default = 1, lower = 0, tags = "train"),
-         ParamDbl$new(id = "epsilon", default = NULL, special_vals = list(NULL), lower = 0, tags = "train"), # Package default depends on the type parameter
-         ParamDbl$new(id = "bias", default = 1, tags = "train"),
-         ParamFct$new(id = "type", default = "1", levels = c("1", "2"), tags = "train"),
-         ParamInt$new(id = "cross", default = 0L, lower = 0L, tags = "train"),
-         ParamLgl$new(id = "verbose", default = FALSE, tags = "train"),
-         ParamUty$new(id = "wi", default = NULL, tags = "train")
-       )
-     )
+#' @template example
+LearnerClassifLiblineaRL2L2SVC = R6Class("LearnerClassifLiblineaRL2L2SVC",
+  inherit = LearnerClassif,
+  public = list(
 
-     super$initialize(
-       id = "classif.liblinearl2l2svc",
-       packages = "LiblineaR",
-       feature_types = "numeric",
-       predict_types = "response",
-       param_set = ps,
-       properties = c("twoclass", "multiclass")
-     )
-   },
+    #' @description
+    #' Creates a new instance of this [R6][R6::R6Class] class.
+    initialize = function() {
+      ps = ParamSet$new(
+        params = list(
+          ParamDbl$new(id = "cost", default = 1, lower = 0, tags = "train"),
+          ParamDbl$new(id = "epsilon", default = NULL, special_vals = list(NULL), lower = 0, tags = "train"), # Package default depends on the type parameter
+          ParamDbl$new(id = "bias", default = 1, tags = "train"),
+          ParamFct$new(id = "type", default = "1", levels = c("1", "2"), tags = "train"),
+          ParamInt$new(id = "cross", default = 0L, lower = 0L, tags = "train"),
+          ParamLgl$new(id = "verbose", default = FALSE, tags = "train"),
+          ParamUty$new(id = "wi", default = NULL, tags = "train")
+        )
+      )
 
-   train_internal = function(task) {
-     pars = self$param_set$get_values(tags = "train")
-     data = task$data()
-     train = data[,task$feature_names, with=FALSE]
-     target = data[,task$target_names, with=FALSE]
+      super$initialize(
+        id = "classif.liblinearl2l2svc",
+        packages = "LiblineaR",
+        feature_types = "numeric",
+        predict_types = "response",
+        param_set = ps,
+        properties = c("twoclass", "multiclass")
+      )
+    }
+  ),
 
-     if(is.null(pars$type)) {
-       type = 1
-     } else {
-       type = as.numeric(pars$type)
-     }
-     pars = pars[names(pars) != "type"]
+  private = list(
+    .train = function(task) {
+      pars = self$param_set$get_values(tags = "train")
+      data = task$data()
+      train = data[, task$feature_names, with = FALSE]
+      target = data[, task$target_names, with = FALSE]
 
-     invoke(LiblineaR::LiblineaR, data = train, target = target, type = type, .args = pars)
-   },
+      if (is.null(pars$type)) {
+        type = 1
+      } else {
+        type = as.numeric(pars$type)
+      }
+      pars = pars[names(pars) != "type"]
 
-   predict_internal = function(task) {
-     newdata = task$data(cols = task$feature_names)
+      invoke(LiblineaR::LiblineaR, data = train, target = target, type = type, .args = pars)
+    },
 
-     p = invoke(predict, self$model, newx = newdata)
-     PredictionClassif$new(task = task, response = p$predictions)
-   }
- )
+    .predict = function(task) {
+      newdata = task$data(cols = task$feature_names)
+
+      p = invoke(predict, self$model, newx = newdata)
+      PredictionClassif$new(task = task, response = p$predictions)
+    }
+  )
 )

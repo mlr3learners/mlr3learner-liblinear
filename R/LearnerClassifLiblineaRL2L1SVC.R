@@ -1,14 +1,20 @@
 #' @title L2-Regularized L1-Loss Support Vector Classification
 #'
-#' @aliases mlr_learners_classif.liblinearl2l1svc
-#' @format [R6::R6Class] inheriting from [mlr3::LearnerClassif].
+#' @name mlr_learners_classif.liblinearl2l1svc
 #'
 #' @description
-#' A [mlr3::LearnerClassif] for a L2-Regularized L1-Loss Support Vector Classification implemented in [LiblineaR::LiblineaR()] in package \CRANpkg{LiblineaR}.
+#' A [mlr3::LearnerClassif] for a L2-Regularized L1-Loss Support Vector Classification implemented in [LiblineaR::LiblineaR()] from package \CRANpkg{LiblineaR}.
+#'
+#' @templateVar id classif.liblinearl2l1svc
 #'
 #' @export
-LearnerClassifLiblineaRL2L1SVC = R6Class("LearnerClassifLiblineaRL2L1SVC", inherit = LearnerClassif,
+#' @template example
+LearnerClassifLiblineaRL2L1SVC = R6Class("LearnerClassifLiblineaRL2L1SVC",
+  inherit = LearnerClassif,
   public = list(
+
+    #' @description
+    #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
       ps = ParamSet$new(
         params = list(
@@ -29,18 +35,20 @@ LearnerClassifLiblineaRL2L1SVC = R6Class("LearnerClassifLiblineaRL2L1SVC", inher
         param_set = ps,
         properties = c("twoclass", "multiclass")
       )
-    },
+    }
+  ),
 
-    train_internal = function(task) {
+  private = list(
+    .train = function(task) {
       pars = self$param_set$get_values(tags = "train")
       data = task$data()
-      train = data[,task$feature_names, with=FALSE]
-      target = data[,task$target_names, with=FALSE]
+      train = data[, task$feature_names, with = FALSE]
+      target = data[, task$target_names, with = FALSE]
 
       invoke(LiblineaR::LiblineaR, data = train, target = target, type = 3L, .args = pars)
     },
 
-    predict_internal = function(task) {
+    .predict = function(task) {
       newdata = task$data(cols = task$feature_names)
 
       p = invoke(predict, self$model, newx = newdata)
