@@ -3,11 +3,13 @@
 #' @name mlr_learners_regr.liblinearl2l1svr
 #'
 #' @description
-#' A [mlr3::LearnerRegr] for a L2-Regularized L1-Loss Support Vector Regression implemented in [LiblineaR::LiblineaR()] from package \CRANpkg{LiblineaR}.
+#' A [mlr3::LearnerRegr] for a L2-Regularized L1-Loss Support Vector Regression implemented in [LiblineaR::LiblineaR()] (`type = 13`) from package \CRANpkg{LiblineaR}.
 #'
 #' @templateVar id regr.liblinearl2l1svr
+#' @template section_dictionary_learner
 #'
 #' @export
+#' @template seealso_learner
 #' @template example
 LearnerRegrLiblineaRL2L1SVR = R6Class("LearnerRegrLiblineaRL2L1SVR",
   inherit = LearnerRegr,

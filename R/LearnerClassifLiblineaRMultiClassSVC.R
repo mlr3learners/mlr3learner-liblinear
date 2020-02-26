@@ -3,11 +3,13 @@
 #' @name mlr_learners_classif.liblinearmulticlasssvc
 #'
 #' @description
-#' A [mlr3::LearnerClassif] for a Support Vector Classification implemented in [LiblineaR::LiblineaR()] from package \CRANpkg{LiblineaR}.
+#' A [mlr3::LearnerClassif] for a Support Vector Classification implemented in [LiblineaR::LiblineaR()] (`type = 4`) from package \CRANpkg{LiblineaR}.
 #'
 #' @templateVar id classif.liblinearmulticlasssvc
+#' @template section_dictionary_learner
 #'
 #' @export
+#' @template seealso_learner
 #' @template example
 LearnerClassifLiblineaRMultiClassSVC = R6Class("LearnerClassifLiblineaRMultiClassSVC",
   inherit = LearnerClassif,

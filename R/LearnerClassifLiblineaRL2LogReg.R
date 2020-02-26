@@ -3,11 +3,13 @@
 #' @name mlr_learners_classif.liblinearl2logreg
 #'
 #' @description
-#' A [mlr3::LearnerClassif] for a L2-Regularized Logistic Regression implemented in [LiblineaR::LiblineaR()] from package \CRANpkg{LiblineaR}.
+#' A [mlr3::LearnerClassif] for a L2-Regularized Logistic Regression implemented in [LiblineaR::LiblineaR()] (`type = 0`) from package \CRANpkg{LiblineaR}.
 #'
 #' @templateVar id classif.liblinearl2logreg
+#' @template section_dictionary_learner
 #'
 #' @export
+#' @template seealso_learner
 #' @template example
 LearnerClassifLiblineaRL2LogReg = R6Class("LearnerClassifLiblineaRL2LogReg",
   inherit = LearnerClassif,

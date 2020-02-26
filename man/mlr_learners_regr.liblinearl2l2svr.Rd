@@ -5,17 +5,27 @@
 \alias{LearnerRegrLiblineaRL2L2SVR}
 \title{L2-Regularized L2-Loss Support Vector Regression}
 \description{
-A \link[mlr3:LearnerRegr]{mlr3::LearnerRegr} for a L2-Regularized L2-Loss Support Vector Regression implemented in \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} from package \CRANpkg{LiblineaR}.
+A \link[mlr3:LearnerRegr]{mlr3::LearnerRegr} for a L2-Regularized L2-Loss Support Vector Regression implemented in \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 11} or \code{type = 12}) from package \CRANpkg{LiblineaR}.
 }
 \note{
 If \code{epsilon} is missing and \code{type = 11} (default), \code{epsilon} is set to \code{0.01}. If \code{type = 12}, \code{epsilon} is set to \code{0.1}.
 }
+\section{Dictionary}{
+
+This \link{Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link{mlr_learners} or with the associated sugar function \code{\link[=lrn]{lrn()}}:\preformatted{mlr_learners$get("regr.liblinearl2l2svr")
+lrn("regr.liblinearl2l2svr")
+}
+}
+
 \examples{
 learner = mlr3::lrn("regr.liblinearl2l2svr")
 print(learner)
 
 # available parameters:
 learner$param_set$ids()
+}
+\seealso{
+\link[mlr3misc:Dictionary]{Dictionary} of \link[mlr3:Learner]{Learners}: \link[mlr3:mlr_learners]{mlr3::mlr_learners}
 }
 \section{Super classes}{
 \code{\link[mlr3:Learner]{mlr3::Learner}} -> \code{\link[mlr3:LearnerRegr]{mlr3::LearnerRegr}} -> \code{LearnerRegrLiblineaRL2L2SVR}

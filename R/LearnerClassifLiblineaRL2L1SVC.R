@@ -3,11 +3,13 @@
 #' @name mlr_learners_classif.liblinearl2l1svc
 #'
 #' @description
-#' A [mlr3::LearnerClassif] for a L2-Regularized L1-Loss Support Vector Classification implemented in [LiblineaR::LiblineaR()] from package \CRANpkg{LiblineaR}.
+#' A [mlr3::LearnerClassif] for a L2-Regularized L1-Loss Support Vector Classification implemented in [LiblineaR::LiblineaR()] (`type = 3`) from package \CRANpkg{LiblineaR}.
 #'
 #' @templateVar id classif.liblinearl2l1svc
+#' @template section_dictionary_learner
 #'
 #' @export
+#' @template seealso_learner
 #' @template example
 LearnerClassifLiblineaRL2L1SVC = R6Class("LearnerClassifLiblineaRL2L1SVC",
   inherit = LearnerClassif,

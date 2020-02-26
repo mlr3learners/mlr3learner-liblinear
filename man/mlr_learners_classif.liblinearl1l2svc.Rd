@@ -5,14 +5,24 @@
 \alias{LearnerClassifLiblineaRL1L2SVC}
 \title{L1-Regularized L2-Loss Support Vector Classification}
 \description{
-A \link[mlr3:LearnerClassif]{mlr3::LearnerClassif} for a L1-Regularized L2-Loss Support Vector Classification implemented in \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} from package \CRANpkg{LiblineaR}.
+A \link[mlr3:LearnerClassif]{mlr3::LearnerClassif} for a L1-Regularized L2-Loss Support Vector Classification implemented in \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 5}) from package \CRANpkg{LiblineaR}.
 }
+\section{Dictionary}{
+
+This \link{Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link{mlr_learners} or with the associated sugar function \code{\link[=lrn]{lrn()}}:\preformatted{mlr_learners$get("classif.liblinearl1l2svc")
+lrn("classif.liblinearl1l2svc")
+}
+}
+
 \examples{
 learner = mlr3::lrn("classif.liblinearl1l2svc")
 print(learner)
 
 # available parameters:
 learner$param_set$ids()
+}
+\seealso{
+\link[mlr3misc:Dictionary]{Dictionary} of \link[mlr3:Learner]{Learners}: \link[mlr3:mlr_learners]{mlr3::mlr_learners}
 }
 \section{Super classes}{
 \code{\link[mlr3:Learner]{mlr3::Learner}} -> \code{\link[mlr3:LearnerClassif]{mlr3::LearnerClassif}} -> \code{LearnerClassifLiblineaRL1L2SVC}
