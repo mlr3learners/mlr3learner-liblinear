@@ -11,5 +11,12 @@
   x = utils::getFromNamespace("mlr_learners", ns = "mlr3")
 
   # add the learner to the dictionary
-  x$add("classif.randomForest", LearnerClassifRandomForest)
+  x$add("classif.liblinearl2l1svc", LearnerClassifLiblineaRL2L1SVC)
+  x$add("classif.liblinearl1l2svc", LearnerClassifLiblineaRL1L2SVC)
+  x$add("classif.liblinearl2l2svc", LearnerClassifLiblineaRL2L2SVC)
+  x$add("classif.liblinearl1logreg", LearnerClassifLiblineaRL1LogReg)
+  x$add("classif.liblinearl2logreg", LearnerClassifLiblineaRL2LogReg)
+  x$add("classif.liblinearmulticlasssvc", LearnerClassifLiblineaRMultiClassSVC)
+  x$add("regr.liblinearl2l1svr", LearnerRegrLiblineaRL2L1SVR)
+  x$add("regr.liblinearl2l2svr", LearnerRegrLiblineaRL2L2SVR)
 } # nocov end
