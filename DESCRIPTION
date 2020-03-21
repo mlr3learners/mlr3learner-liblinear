@@ -20,7 +20,6 @@ Imports:
     LiblineaR
 Suggests:
     testthat,
-    rmarkdown,
     checkmate
 Encoding: UTF-8
 NeedsCompilation: no
