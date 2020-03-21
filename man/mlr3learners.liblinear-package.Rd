@@ -4,9 +4,9 @@
 \name{mlr3learners.liblinear-package}
 \alias{mlr3learners.liblinear}
 \alias{mlr3learners.liblinear-package}
-\title{mlr3learners.liblinear: LiblineaR learners from LiblineaR package for mlr3}
+\title{mlr3learners.liblinear: Learners from LiblineaR package for mlr3}
 \description{
-LiblineaR learners from LiblineaR package for mlr3.
+Adds `LiblineaR()` from the LiblineaR package to mlr3.
 }
 \author{
 \strong{Maintainer}: Marc Becker \email{marcbecker@posteo.de}

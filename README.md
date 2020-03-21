@@ -6,10 +6,18 @@
 [![StackOverflow](https://img.shields.io/badge/stackoverflow-mlr3-orange.svg)](https://stackoverflow.com/questions/tagged/mlr3)
 <!-- badges: end -->
 
-This package adds `LiblineaR` from the `LiblineaR` package to `mlr3`.
+Adds `LiblineaR()` from the {LiblineaR} package to {mlr3}.
 
-Install the latest version of `mlr3learners.liblinear` with:
+Install the latest release of the package via 
 
 ```r
-remotes::install_github("mlr3learners/mlr3learners.liblinear")
+install.packages("mlr3learners.LiblineaR")
+```
+
+by following the instructions in the [mlr3learners.drat README](https://github.com/mlr3learners/mlr3learners.drat).
+
+Alternatively, you can install the latest version of {mlr3learners.partykit} from Github with:
+
+```r
+remotes::install_github("mlr3learners/mlr3learners.LiblineaR")
 ```

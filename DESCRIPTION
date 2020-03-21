@@ -1,5 +1,5 @@
 Package: mlr3learners.liblinear
-Title: LiblineaR learners from LiblineaR package for mlr3
+Title: Learners from LiblineaR package for mlr3
 Version: 0.1.0
 Authors@R:
     c(person(given = "Marc",
@@ -7,7 +7,7 @@ Authors@R:
              role = "cre",
              email = "marcbecker@posteo.de")
       )
-Description: LiblineaR learners from LiblineaR package for mlr3.
+Description: Adds `LiblineaR()` from the LiblineaR package to mlr3. 
 License: LGPL-3
 Depends:
     R (>= 3.1.0)
@@ -25,4 +25,4 @@ Suggests:
 Encoding: UTF-8
 NeedsCompilation: no
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
