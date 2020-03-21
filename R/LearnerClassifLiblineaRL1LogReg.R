@@ -4,7 +4,7 @@
 #'
 #' @description
 #' L1-Regularized logistic regression learner.
-#' Calls [LiblineaR::LiblineaR()] from package \CRANpkg{LiblineaR}.
+#' Calls [LiblineaR::LiblineaR()] (`type = 6`) from package \CRANpkg{LiblineaR}.
 #'
 #' @templateVar id classif.liblinearl1logreg
 #' @template section_dictionary_learner

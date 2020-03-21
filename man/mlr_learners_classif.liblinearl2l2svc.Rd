@@ -9,7 +9,7 @@ L2-Regularized L2-Loss support vector classification learner.
 Calls \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 1} or \code{type = 2}) from package \CRANpkg{LiblineaR}.
 }
 \note{
-If number of records > number of features \code{type = 2} is faster than \code{type = 1} (Hsu et al. 2016).\cr If \code{epsilon} is missing and \code{type = 1} (default),
+If number of records > number of features \code{type = 2} is faster than \code{type = 1} (Hsu et al. 2003).\cr If \code{epsilon} is missing and \code{type = 1} (default),
 \code{epsilon} is set to \code{0.1}. If \code{type = 2}, \code{epsilon} is set to \code{0.01}.
 }
 \section{Dictionary}{
@@ -27,9 +27,7 @@ print(learner)
 learner$param_set$ids()
 }
 \references{
-C-W. Hsu, Chang C-C., Lin and C-J (2016)\cr
-A Practical Guide to Support Vector Classification\cr
-\url{https://www.csie.ntu.edu.tw/~cjlin/papers/guide/guide.pdf}\cr
+\cite{mlr3learners.liblinear}{hsu_2003}
 }
 \seealso{
 \link[mlr3misc:Dictionary]{Dictionary} of \link[mlr3:Learner]{Learners}: \link[mlr3:mlr_learners]{mlr3::mlr_learners}

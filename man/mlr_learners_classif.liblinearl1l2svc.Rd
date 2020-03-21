@@ -6,7 +6,7 @@
 \title{L1-Regularized L2-Loss Support Vector Classification Learner}
 \description{
 L1-Regularized L2-Loss support vector classification learner.
-Calls \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} from package \CRANpkg{LiblineaR}.
+Calls \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 5}) from package \CRANpkg{LiblineaR}.
 }
 \section{Dictionary}{
 

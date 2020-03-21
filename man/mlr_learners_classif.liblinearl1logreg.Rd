@@ -6,7 +6,7 @@
 \title{L1-Regularized Logistic Regression Learner}
 \description{
 L1-Regularized logistic regression learner.
-Calls \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} from package \CRANpkg{LiblineaR}.
+Calls \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 6}) from package \CRANpkg{LiblineaR}.
 }
 \section{Dictionary}{
 

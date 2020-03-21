@@ -4,7 +4,7 @@
 #'
 #' @description
 #' L2-Regularized L1-Loss support vector classification learner.
-#' Calls [LiblineaR::LiblineaR()] from package \CRANpkg{LiblineaR}.
+#' Calls [LiblineaR::LiblineaR()] (`type = 3`) from package \CRANpkg{LiblineaR}.
 #'
 #' @templateVar id classif.liblinearl2l1svc
 #' @template section_dictionary_learner
