@@ -8,16 +8,14 @@
 #'
 #' @note
 #' If number of records > number of features `type = 2` is faster than `type =
-#' 1` (Hsu et al. 2016).\cr If `epsilon` is missing and `type = 1` (default),
+#' 1` (Hsu et al. 2003).\cr If `epsilon` is missing and `type = 1` (default),
 #' `epsilon` is set to `0.1`. If `type = 2`, `epsilon` is set to `0.01`.
 #'
 #' @templateVar id classif.liblinearl2l2svc
 #' @template section_dictionary_learner
 #'
 #' @references
-#' C-W. Hsu, Chang C-C., Lin and C-J (2016)\cr
-#' A Practical Guide to Support Vector Classification\cr
-#' \url{https://www.csie.ntu.edu.tw/~cjlin/papers/guide/guide.pdf}\cr
+#' \cite{mlr3learners.liblinear}{hsu_2003}
 #'
 #' @export
 #' @template seealso_learner
