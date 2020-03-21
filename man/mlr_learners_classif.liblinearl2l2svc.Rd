@@ -3,13 +3,14 @@
 \name{mlr_learners_classif.liblinearl2l2svc}
 \alias{mlr_learners_classif.liblinearl2l2svc}
 \alias{LearnerClassifLiblineaRL2L2SVC}
-\title{L2-Regularized L2-Loss Support Vector Classification}
+\title{L2-Regularized L2-Loss Support Vector Classification Learner}
 \description{
-A \link[mlr3:LearnerClassif]{mlr3::LearnerClassif} for a L2-Regularized L2-Loss Support Vector Classification implemented in \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 1} or \code{type = 2}) from package \CRANpkg{LiblineaR}.
+L2-Regularized L2-Loss support vector classification learner.
+Calls \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 1} or \code{type = 2}) from package \CRANpkg{LiblineaR}.
 }
 \note{
-If number of records > number of features \code{type = 2} is faster than \code{type = 1} (Hsu et al. 2016).\cr
-If \code{epsilon} is missing and \code{type = 1} (default), \code{epsilon} is set to \code{0.1}. If \code{type = 2}, \code{epsilon} is set to \code{0.01}.
+If number of records > number of features \code{type = 2} is faster than \code{type = 1} (Hsu et al. 2016).\cr If \code{epsilon} is missing and \code{type = 1} (default),
+\code{epsilon} is set to \code{0.1}. If \code{type = 2}, \code{epsilon} is set to \code{0.01}.
 }
 \section{Dictionary}{
 

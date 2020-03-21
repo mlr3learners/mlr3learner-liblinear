@@ -3,9 +3,10 @@
 \name{mlr_learners_classif.liblinearmulticlasssvc}
 \alias{mlr_learners_classif.liblinearmulticlasssvc}
 \alias{LearnerClassifLiblineaRMultiClassSVC}
-\title{Support Vector Classification}
+\title{Support Vector Classification Learner}
 \description{
-A \link[mlr3:LearnerClassif]{mlr3::LearnerClassif} for a Support Vector Classification implemented in \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 4}) from package \CRANpkg{LiblineaR}.
+Support vector classification learner.
+Calls \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 4}) from package \CRANpkg{LiblineaR}.
 }
 \section{Dictionary}{
 

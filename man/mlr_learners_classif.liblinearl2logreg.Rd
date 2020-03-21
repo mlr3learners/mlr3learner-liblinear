@@ -3,9 +3,10 @@
 \name{mlr_learners_classif.liblinearl2logreg}
 \alias{mlr_learners_classif.liblinearl2logreg}
 \alias{LearnerClassifLiblineaRL2LogReg}
-\title{L2-Regularized Logistic Regression}
+\title{L2-Regularized Logistic Regression Learner}
 \description{
-A \link[mlr3:LearnerClassif]{mlr3::LearnerClassif} for a L2-Regularized Logistic Regression implemented in \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 0}) from package \CRANpkg{LiblineaR}.
+L2-Regularized logistic regression learner.
+Calls \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 0}) from package \CRANpkg{LiblineaR}.
 }
 \section{Dictionary}{
 

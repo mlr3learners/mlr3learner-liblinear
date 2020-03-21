@@ -1,9 +1,10 @@
-#' @title L1-Regularized Logistic Regression
+#' @title L1-Regularized Logistic Regression Learner
 #'
 #' @name mlr_learners_classif.liblinearl1logreg
 #'
 #' @description
-#' A [mlr3::LearnerClassif] for a L1-Regularized Logistic Regression implemented in [LiblineaR::LiblineaR()] (`type = 6`) from package \CRANpkg{LiblineaR}.
+#' L1-Regularized logistic regression learner.
+#' Calls [LiblineaR::LiblineaR()] from package \CRANpkg{LiblineaR}.
 #'
 #' @templateVar id classif.liblinearl1logreg
 #' @template section_dictionary_learner

@@ -3,12 +3,15 @@
 \name{mlr_learners_regr.liblinearl2l2svr}
 \alias{mlr_learners_regr.liblinearl2l2svr}
 \alias{LearnerRegrLiblineaRL2L2SVR}
-\title{L2-Regularized L2-Loss Support Vector Regression}
+\title{L2-Regularized L2-Loss Support Vector Regression Learner}
 \description{
-A \link[mlr3:LearnerRegr]{mlr3::LearnerRegr} for a L2-Regularized L2-Loss Support Vector Regression implemented in \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 11} or \code{type = 12}) from package \CRANpkg{LiblineaR}.
+L2-Regularized L2-Loss support vector regression learner. Calls
+\code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 11} or \code{type = 12}) from package
+\CRANpkg{LiblineaR}.
 }
 \note{
-If \code{epsilon} is missing and \code{type = 11} (default), \code{epsilon} is set to \code{0.01}. If \code{type = 12}, \code{epsilon} is set to \code{0.1}.
+If \code{epsilon} is missing and \code{type = 11} (default), \code{epsilon} is set to
+\code{0.01}. If \code{type = 12}, \code{epsilon} is set to \code{0.1}.
 }
 \section{Dictionary}{
 

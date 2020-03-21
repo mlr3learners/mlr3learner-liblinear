@@ -1,9 +1,10 @@
-#' @title L2-Regularized L1-Loss Support Vector Classification
+#' @title L2-Regularized L1-Loss Support Vector Classification Learner
 #'
 #' @name mlr_learners_classif.liblinearl2l1svc
 #'
 #' @description
-#' A [mlr3::LearnerClassif] for a L2-Regularized L1-Loss Support Vector Classification implemented in [LiblineaR::LiblineaR()] (`type = 3`) from package \CRANpkg{LiblineaR}.
+#' L2-Regularized L1-Loss support vector classification learner.
+#' Calls [LiblineaR::LiblineaR()] from package \CRANpkg{LiblineaR}.
 #'
 #' @templateVar id classif.liblinearl2l1svc
 #' @template section_dictionary_learner

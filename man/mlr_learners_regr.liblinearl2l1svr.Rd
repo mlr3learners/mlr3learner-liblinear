@@ -3,9 +3,10 @@
 \name{mlr_learners_regr.liblinearl2l1svr}
 \alias{mlr_learners_regr.liblinearl2l1svr}
 \alias{LearnerRegrLiblineaRL2L1SVR}
-\title{L2-Regularized L1-Loss Support Vector Regression}
+\title{L2-Regularized L1-Loss Support Vector Regression Learner}
 \description{
-A \link[mlr3:LearnerRegr]{mlr3::LearnerRegr} for a L2-Regularized L1-Loss Support Vector Regression implemented in \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 13}) from package \CRANpkg{LiblineaR}.
+L2-Regularized L1-Loss support vector regression learner. Calls
+\code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 13}) from package \CRANpkg{LiblineaR}.
 }
 \section{Dictionary}{
 

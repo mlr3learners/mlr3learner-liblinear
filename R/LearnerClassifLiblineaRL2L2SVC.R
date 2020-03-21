@@ -1,13 +1,15 @@
-#' @title L2-Regularized L2-Loss Support Vector Classification
+#' @title L2-Regularized L2-Loss Support Vector Classification Learner
 #'
 #' @name mlr_learners_classif.liblinearl2l2svc
 #'
 #' @description
-#' A [mlr3::LearnerClassif] for a L2-Regularized L2-Loss Support Vector Classification implemented in [LiblineaR::LiblineaR()] (`type = 1` or `type = 2`) from package \CRANpkg{LiblineaR}.
+#' L2-Regularized L2-Loss support vector classification learner.
+#' Calls [LiblineaR::LiblineaR()] (`type = 1` or `type = 2`) from package \CRANpkg{LiblineaR}.
 #'
 #' @note
-#' If number of records > number of features `type = 2` is faster than `type = 1` (Hsu et al. 2016).\cr
-#' If `epsilon` is missing and `type = 1` (default), `epsilon` is set to `0.1`. If `type = 2`, `epsilon` is set to `0.01`.
+#' If number of records > number of features `type = 2` is faster than `type =
+#' 1` (Hsu et al. 2016).\cr If `epsilon` is missing and `type = 1` (default),
+#' `epsilon` is set to `0.1`. If `type = 2`, `epsilon` is set to `0.01`.
 #'
 #' @templateVar id classif.liblinearl2l2svc
 #' @template section_dictionary_learner

@@ -1,12 +1,15 @@
-#' @title L2-Regularized L2-Loss Support Vector Regression
+#' @title L2-Regularized L2-Loss Support Vector Regression Learner
 #'
 #' @name mlr_learners_regr.liblinearl2l2svr
 #'
 #' @description
-#' A [mlr3::LearnerRegr] for a L2-Regularized L2-Loss Support Vector Regression implemented in [LiblineaR::LiblineaR()] (`type = 11` or `type = 12`) from package \CRANpkg{LiblineaR}.
+#' L2-Regularized L2-Loss support vector regression learner. Calls
+#' [LiblineaR::LiblineaR()] (`type = 11` or `type = 12`) from package
+#' \CRANpkg{LiblineaR}.
 #'
 #' @note
-#' If `epsilon` is missing and `type = 11` (default), `epsilon` is set to `0.01`. If `type = 12`, `epsilon` is set to `0.1`.
+#' If `epsilon` is missing and `type = 11` (default), `epsilon` is set to
+#' `0.01`. If `type = 12`, `epsilon` is set to `0.1`.
 #'
 #' @templateVar id regr.liblinearl2l2svr
 #' @template section_dictionary_learner

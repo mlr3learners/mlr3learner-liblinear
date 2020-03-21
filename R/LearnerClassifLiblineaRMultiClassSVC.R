@@ -1,9 +1,10 @@
-#' @title Support Vector Classification
+#' @title Support Vector Classification Learner
 #'
 #' @name mlr_learners_classif.liblinearmulticlasssvc
 #'
 #' @description
-#' A [mlr3::LearnerClassif] for a Support Vector Classification implemented in [LiblineaR::LiblineaR()] (`type = 4`) from package \CRANpkg{LiblineaR}.
+#' Support vector classification learner.
+#' Calls [LiblineaR::LiblineaR()] (`type = 4`) from package \CRANpkg{LiblineaR}.
 #'
 #' @templateVar id classif.liblinearmulticlasssvc
 #' @template section_dictionary_learner

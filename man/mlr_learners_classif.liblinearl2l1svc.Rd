@@ -3,9 +3,10 @@
 \name{mlr_learners_classif.liblinearl2l1svc}
 \alias{mlr_learners_classif.liblinearl2l1svc}
 \alias{LearnerClassifLiblineaRL2L1SVC}
-\title{L2-Regularized L1-Loss Support Vector Classification}
+\title{L2-Regularized L1-Loss Support Vector Classification Learner}
 \description{
-A \link[mlr3:LearnerClassif]{mlr3::LearnerClassif} for a L2-Regularized L1-Loss Support Vector Classification implemented in \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 3}) from package \CRANpkg{LiblineaR}.
+L2-Regularized L1-Loss support vector classification learner.
+Calls \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} from package \CRANpkg{LiblineaR}.
 }
 \section{Dictionary}{
 
