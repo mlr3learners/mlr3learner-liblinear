@@ -2,12 +2,12 @@ Package: mlr3learners.liblinear
 Title: Learners from LiblineaR package for mlr3
 Version: 0.1.0
 Authors@R:
-    c(person(given = "Marc",
-             family = "Becker",
-             role = "cre",
-             email = "marcbecker@posteo.de")
-      )
-Description: Adds `LiblineaR()` from the LiblineaR package to mlr3. 
+    person(given = "Marc",
+           family = "Becker",
+           role = "cre",
+           email = "marcbecker@posteo.de")
+Description: Adds `LiblineaR()` from the LiblineaR package to
+    mlr3.
 License: LGPL-3
 Depends:
     R (>= 3.1.0)
@@ -16,14 +16,15 @@ Imports:
     mlr3,
     mlr3misc,
     paradox,
-    R6,
-    LiblineaR
+    R6
 Suggests:
-    testthat,
     bibtex,
-    checkmate
+    checkmate,
+    LiblineaR,
+    testthat
+RdMacros:
+    mlr3misc
 Encoding: UTF-8
 NeedsCompilation: no
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
-RdMacros: mlr3misc

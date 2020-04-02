@@ -6,11 +6,15 @@
 \title{L2-Regularized L2-Loss Support Vector Classification Learner}
 \description{
 L2-Regularized L2-Loss support vector classification learner.
-Calls \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 1} or \code{type = 2}) from package \CRANpkg{LiblineaR}.
+Calls \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 1} or \code{type = 2}) from package
+\CRANpkg{LiblineaR}.
 }
-\note{
-If number of records > number of features \code{type = 2} is faster than \code{type = 1} (Hsu et al. 2003).\cr If \code{epsilon} is missing and \code{type = 1} (default),
-\code{epsilon} is set to \code{0.1}. If \code{type = 2}, \code{epsilon} is set to \code{0.01}.
+\details{
+If number of records > number of features, \code{type = 2} is faster than \code{type = 1} (Hsu et al. 2003).
+
+The default for \code{epsilon} is set to match \code{type = "2"}. If you change to
+\code{type = "1"} remember to eventually adjust the value for \code{epsilon} (default
+= 0.1).
 }
 \section{Dictionary}{
 

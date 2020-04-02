@@ -4,12 +4,16 @@
 #'
 #' @description
 #' L2-Regularized L2-Loss support vector classification learner.
-#' Calls [LiblineaR::LiblineaR()] (`type = 1` or `type = 2`) from package \CRANpkg{LiblineaR}.
+#' Calls [LiblineaR::LiblineaR()] (`type = 1` or `type = 2`) from package
+#' \CRANpkg{LiblineaR}.
 #'
-#' @note
-#' If number of records > number of features `type = 2` is faster than `type =
-#' 1` (Hsu et al. 2003).\cr If `epsilon` is missing and `type = 1` (default),
-#' `epsilon` is set to `0.1`. If `type = 2`, `epsilon` is set to `0.01`.
+#' @details
+#' If number of records > number of features, `type = 2` is faster than `type =
+#' 1` (Hsu et al. 2003).
+#'
+#'  The default for `epsilon` is set to match `type = "2"`. If you change to
+#'  `type = "1"` remember to eventually adjust the value for `epsilon` (default
+#'  = 0.1).
 #'
 #' @templateVar id classif.liblinearl2l2svc
 #' @template section_dictionary_learner
@@ -30,14 +34,24 @@ LearnerClassifLiblineaRL2L2SVC = R6Class("LearnerClassifLiblineaRL2L2SVC",
       ps = ParamSet$new(
         params = list(
           ParamDbl$new(id = "cost", default = 1, lower = 0, tags = "train"),
-          ParamDbl$new(id = "epsilon", default = NULL, special_vals = list(NULL), lower = 0, tags = "train"), # Package default depends on the type parameter
+          ParamDbl$new(id = "epsilon", default = 0.01, special_vals = list(NULL), lower = 0, tags = "train"),
           ParamDbl$new(id = "bias", default = 1, tags = "train"),
-          ParamFct$new(id = "type", default = "1", levels = c("1", "2"), tags = "train"),
+          ParamFct$new(id = "type", default = "2", levels = c("1", "2"), tags = "train"),
           ParamInt$new(id = "cross", default = 0L, lower = 0L, tags = "train"),
           ParamLgl$new(id = "verbose", default = FALSE, tags = "train"),
-          ParamUty$new(id = "wi", default = NULL, tags = "train")
+          ParamUty$new(id = "wi", default = NULL, tags = "train"),
+          ParamLgl$new(id = "findC", default = FALSE, tags = "train"),
+          ParamLgl$new(id = "useInitC", default = TRUE, tags = "train")
         )
       )
+      # 50 is an arbitrary choice here
+      ps$add_dep("findC", "cross", CondAnyOf$new(seq(2:50)))
+      ps$add_dep("useInitC", "findC", CondEqual$new(TRUE))
+
+      if (!is.null(ps$values$type) && ps$values$type == "1") {
+        cat("yes")
+        ps$values$epsilon = 0.1
+      }
 
       super$initialize(
         id = "classif.liblinearl2l2svc",
@@ -45,7 +59,8 @@ LearnerClassifLiblineaRL2L2SVC = R6Class("LearnerClassifLiblineaRL2L2SVC",
         feature_types = "numeric",
         predict_types = "response",
         param_set = ps,
-        properties = c("twoclass", "multiclass")
+        properties = c("twoclass", "multiclass"),
+        man = "mlr3learners.liblinear::mlr_learners_classif.liblinearl2l2svc"
       )
     }
   ),
@@ -64,7 +79,7 @@ LearnerClassifLiblineaRL2L2SVC = R6Class("LearnerClassifLiblineaRL2L2SVC",
       }
       pars = pars[names(pars) != "type"]
 
-      invoke(LiblineaR::LiblineaR, data = train, target = target, type = type, .args = pars)
+      mlr3misc::invoke(LiblineaR::LiblineaR, data = train, target = target, type = type, .args = pars)
     },
 
     .predict = function(task) {

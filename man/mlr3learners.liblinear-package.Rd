@@ -6,7 +6,8 @@
 \alias{mlr3learners.liblinear-package}
 \title{mlr3learners.liblinear: Learners from LiblineaR package for mlr3}
 \description{
-Adds `LiblineaR()` from the LiblineaR package to mlr3.
+Adds `LiblineaR()` from the LiblineaR package to
+    mlr3.
 }
 \author{
 \strong{Maintainer}: Marc Becker \email{marcbecker@posteo.de}

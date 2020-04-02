@@ -8,6 +8,20 @@
 L2-Regularized L1-Loss support vector classification learner.
 Calls \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 3}) from package \CRANpkg{LiblineaR}.
 }
+\section{Custom mlr3 defaults}{
+
+\itemize{
+\item \code{epsilon}:
+\itemize{
+\item Actual default: 0.01
+\item Adjusted default: 0.1
+\item Reason for change: Param depends on param "type" which is handled
+internally by choosing the mlr3 learner. The default is set to the actual
+default of the respective "type".
+}
+}
+}
+
 \section{Dictionary}{
 
 This \link{Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link{mlr_learners} or with the associated sugar function \code{\link[=lrn]{lrn()}}:\preformatted{mlr_learners$get("classif.liblinearl2l1svc")

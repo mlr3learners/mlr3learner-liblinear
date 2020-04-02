@@ -6,6 +6,7 @@
 #' L2-Regularized logistic regression learner.
 #' Calls [LiblineaR::LiblineaR()] (`type = 0`) from package \CRANpkg{LiblineaR}.
 #'
+#'
 #' @templateVar id classif.liblinearl2logreg
 #' @template section_dictionary_learner
 #'
@@ -22,13 +23,18 @@ LearnerClassifLiblineaRL2LogReg = R6Class("LearnerClassifLiblineaRL2LogReg",
       ps = ParamSet$new(
         params = list(
           ParamDbl$new(id = "cost", default = 1, lower = 0, tags = "train"),
-          ParamDbl$new(id = "epsilon", default = 0.1, lower = 0, tags = "train"),
+          ParamDbl$new(id = "epsilon", default = 0.01, lower = 0, tags = "train"),
           ParamDbl$new(id = "bias", default = 1, tags = "train"),
           ParamInt$new(id = "cross", default = 0L, lower = 0L, tags = "train"),
           ParamLgl$new(id = "verbose", default = FALSE, tags = "train"),
-          ParamUty$new(id = "wi", default = NULL, tags = "train")
+          ParamUty$new(id = "wi", default = NULL, tags = "train"),
+          ParamLgl$new(id = "findC", default = FALSE, tags = "train"),
+          ParamLgl$new(id = "useInitC", default = TRUE, tags = "train")
         )
       )
+      # 50 is an arbitrary choice here
+      ps$add_dep("findC", "cross", CondAnyOf$new(seq(2:50)))
+      ps$add_dep("useInitC", "findC", CondEqual$new(TRUE))
 
       super$initialize(
         id = "classif.liblinearl2logreg",
@@ -36,7 +42,8 @@ LearnerClassifLiblineaRL2LogReg = R6Class("LearnerClassifLiblineaRL2LogReg",
         feature_types = "numeric",
         predict_types = c("response", "prob"),
         param_set = ps,
-        properties = c("twoclass", "multiclass")
+        properties = c("twoclass", "multiclass"),
+        man = "mlr3learners.liblinear::mlr_learners_classif.liblinearl2logreg"
       )
     }
   ),
@@ -47,7 +54,7 @@ LearnerClassifLiblineaRL2LogReg = R6Class("LearnerClassifLiblineaRL2LogReg",
       train = data[, task$feature_names, with = FALSE]
       target = data[, task$target_names, with = FALSE]
 
-      invoke(LiblineaR::LiblineaR, data = train, target = target, type = 0L, .args = pars)
+      mlr3misc::invoke(LiblineaR::LiblineaR, data = train, target = target, type = 0L, .args = pars)
     },
 
     .predict = function(task) {

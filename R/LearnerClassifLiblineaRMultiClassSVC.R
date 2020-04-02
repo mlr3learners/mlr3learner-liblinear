@@ -6,6 +6,14 @@
 #' Support vector classification learner.
 #' Calls [LiblineaR::LiblineaR()] (`type = 4`) from package \CRANpkg{LiblineaR}.
 #'
+#' @section Custom mlr3 defaults:
+#' - `epsilon`:
+#'   - Actual default: 0.01
+#'   - Adjusted default: 0.1
+#'   - Reason for change: Param depends on param "type" which is handled
+#'   internally by choosing the mlr3 learner. The default is set to the actual
+#'   default of the respective "type".
+#'
 #' @templateVar id classif.liblinearmulticlasssvc
 #' @template section_dictionary_learner
 #'
@@ -22,12 +30,24 @@ LearnerClassifLiblineaRMultiClassSVC = R6Class("LearnerClassifLiblineaRMultiClas
       ps = ParamSet$new(
         params = list(
           ParamDbl$new(id = "cost", default = 1, lower = 0, tags = "train"),
-          ParamDbl$new(id = "epsilon", default = 0.1, lower = 0, tags = "train"),
+          ParamDbl$new(id = "epsilon", default = 0.01, lower = 0, tags = "train"),
           ParamDbl$new(id = "bias", default = 1, tags = "train"),
           ParamInt$new(id = "cross", default = 0L, lower = 0L, tags = "train"),
           ParamLgl$new(id = "verbose", default = FALSE, tags = "train"),
-          ParamUty$new(id = "wi", default = NULL, tags = "train")
+          ParamUty$new(id = "wi", default = NULL, tags = "train"),
+          ParamLgl$new(id = "findC", default = FALSE, tags = "train"),
+          ParamLgl$new(id = "useInitC", default = TRUE, tags = "train")
         )
+      )
+
+      # 50 is an arbitrary choice here
+      ps$add_dep("findC", "cross", CondAnyOf$new(seq(2:50)))
+      ps$add_dep("useInitC", "findC", CondEqual$new(TRUE))
+
+      # custom defaults
+      ps$values = list(
+        # type dependent
+        epsilon = 0.1
       )
 
       super$initialize(
@@ -36,7 +56,8 @@ LearnerClassifLiblineaRMultiClassSVC = R6Class("LearnerClassifLiblineaRMultiClas
         feature_types = "numeric",
         predict_types = c("response"),
         param_set = ps,
-        properties = c("twoclass", "multiclass")
+        properties = c("twoclass", "multiclass"),
+        man = "mlr3learners.liblinear::mlr_learners_classif.liblinearmulticlasssvc"
       )
     }
   ),

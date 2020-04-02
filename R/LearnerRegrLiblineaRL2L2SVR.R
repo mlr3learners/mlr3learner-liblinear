@@ -7,9 +7,18 @@
 #' [LiblineaR::LiblineaR()] (`type = 11` or `type = 12`) from package
 #' \CRANpkg{LiblineaR}.
 #'
-#' @note
-#' If `epsilon` is missing and `type = 11` (default), `epsilon` is set to
-#' `0.01`. If `type = 12`, `epsilon` is set to `0.1`.
+#' @section Custom mlr3 defaults:
+#' - `svr_eps`:
+#'   - Actual default: `NULL`
+#'   - Adjusted default: 0.001
+#'   - Reason for change: `svr_eps` is type dependent and the "type" is handled
+#'   by the mlr3learner. The default value is set to th default of the respective
+#'   "type".
+#' - `epsilon`:
+#'   - Actual default: 0.01
+#'   - Adjusted default: Removed
+#'   - Reason for change: For regr SVR learners paramter `svr_eps` overwrites
+#'   param `epsilon`.
 #'
 #' @templateVar id regr.liblinearl2l2svr
 #' @template section_dictionary_learner
@@ -27,13 +36,24 @@ LearnerRegrLiblineaRL2L2SVR = R6Class("LearnerRegrLiblineaRL2L2SVR",
       ps = ParamSet$new(
         params = list(
           ParamDbl$new(id = "cost", default = 1, lower = 0, tags = "train"),
-          ParamDbl$new(id = "epsilon", default = NULL, special_vals = list(NULL), lower = 0, tags = "train"), # Package default depends on the type parameter
           ParamDbl$new(id = "bias", default = 1, tags = "train"),
           ParamFct$new(id = "type", default = "11", levels = c("11", "12"), tags = "train"),
-          ParamDbl$new(id = "svr_eps", default = 0.1, lower = 0, tags = "train"), # Package default is NULL but produces warning and sets value to 0.1
+          ParamDbl$new(id = "svr_eps", default = NULL, special_vals = list(NULL), lower = 0, tags = "train"),
           ParamInt$new(id = "cross", default = 0L, lower = 0L, tags = "train"),
-          ParamLgl$new(id = "verbose", default = FALSE, tags = "train")
+          ParamLgl$new(id = "verbose", default = FALSE, tags = "train"),
+          ParamLgl$new(id = "findC", default = FALSE, tags = "train"),
+          ParamLgl$new(id = "useInitC", default = TRUE, tags = "train")
         )
+      )
+
+      # 50 is an arbitrary choice here
+      ps$add_dep("findC", "cross", CondAnyOf$new(seq(2:50)))
+      ps$add_dep("useInitC", "findC", CondEqual$new(TRUE))
+
+      # custom defaults
+      ps$values = list(
+        # Package default is NULL but for regr SVR learners takes precedence over epsilon
+        svr_eps = 0.001
       )
 
       super$initialize(
@@ -41,20 +61,18 @@ LearnerRegrLiblineaRL2L2SVR = R6Class("LearnerRegrLiblineaRL2L2SVR",
         packages = "LiblineaR",
         feature_types = c("integer", "numeric"),
         predict_types = "response",
-        param_set = ps
+        param_set = ps,
+        man = "mlr3learners.liblinear::mlr_learners_regr.liblinearl2l1svr"
       )
     }
   ),
   private = list(
     .train = function(task) {
+
       pars = self$param_set$get_values(tags = "train")
       data = task$data()
       train = data[, task$feature_names, with = FALSE]
       target = data[, task$target_names, with = FALSE]
-
-      if (is.null(pars$svr_eps)) {
-        pars$svr_eps = 0.1
-      }
 
       if (is.null(pars$type)) {
         type = 11

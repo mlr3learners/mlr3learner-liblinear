@@ -9,10 +9,27 @@ L2-Regularized L2-Loss support vector regression learner. Calls
 \code{\link[LiblineaR:LiblineaR]{LiblineaR::LiblineaR()}} (\code{type = 11} or \code{type = 12}) from package
 \CRANpkg{LiblineaR}.
 }
-\note{
-If \code{epsilon} is missing and \code{type = 11} (default), \code{epsilon} is set to
-\code{0.01}. If \code{type = 12}, \code{epsilon} is set to \code{0.1}.
+\section{Custom mlr3 defaults}{
+
+\itemize{
+\item \code{svr_eps}:
+\itemize{
+\item Actual default: \code{NULL}
+\item Adjusted default: 0.001
+\item Reason for change: \code{svr_eps} is type dependent and the "type" is handled
+by the mlr3learner. The default value is set to th default of the respective
+"type".
 }
+\item \code{epsilon}:
+\itemize{
+\item Actual default: 0.01
+\item Adjusted default: Removed
+\item Reason for change: For regr SVR learners paramter \code{svr_eps} overwrites
+param \code{epsilon}.
+}
+}
+}
+
 \section{Dictionary}{
 
 This \link{Learner} can be instantiated via the \link[mlr3misc:Dictionary]{dictionary} \link{mlr_learners} or with the associated sugar function \code{\link[=lrn]{lrn()}}:\preformatted{mlr_learners$get("regr.liblinearl2l2svr")
