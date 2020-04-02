@@ -20,13 +20,14 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClassifLiblineaRMultiClassSVC = R6Class("LearnerClassifLiblineaRMultiClassSVC",
+LearnerClassifLiblineaRMultiClassSVC = R6Class("LearnerClassifLiblineaRMultiClassSVC", # nolint
   inherit = LearnerClassif,
   public = list(
 
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
+
       ps = ParamSet$new(
         params = list(
           ParamDbl$new(id = "cost", default = 1, lower = 0, tags = "train"),

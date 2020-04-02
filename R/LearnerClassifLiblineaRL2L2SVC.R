@@ -24,7 +24,7 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClassifLiblineaRL2L2SVC = R6Class("LearnerClassifLiblineaRL2L2SVC",
+LearnerClassifLiblineaRL2L2SVC = R6Class("LearnerClassifLiblineaRL2L2SVC", # nolint
   inherit = LearnerClassif,
   public = list(
 
@@ -34,7 +34,9 @@ LearnerClassifLiblineaRL2L2SVC = R6Class("LearnerClassifLiblineaRL2L2SVC",
       ps = ParamSet$new(
         params = list(
           ParamDbl$new(id = "cost", default = 1, lower = 0, tags = "train"),
-          ParamDbl$new(id = "epsilon", default = 0.01, special_vals = list(NULL), lower = 0, tags = "train"),
+          ParamDbl$new(
+            id = "epsilon", default = 0.01, special_vals = list(NULL),
+            lower = 0, tags = "train"),
           ParamDbl$new(id = "bias", default = 1, tags = "train"),
           ParamFct$new(id = "type", default = "2", levels = c("1", "2"), tags = "train"),
           ParamInt$new(id = "cross", default = 0L, lower = 0L, tags = "train"),
@@ -79,7 +81,8 @@ LearnerClassifLiblineaRL2L2SVC = R6Class("LearnerClassifLiblineaRL2L2SVC",
       }
       pars = pars[names(pars) != "type"]
 
-      mlr3misc::invoke(LiblineaR::LiblineaR, data = train, target = target, type = type, .args = pars)
+      mlr3misc::invoke(LiblineaR::LiblineaR, data = train, target = target,
+       type = type, .args = pars)
     },
 
     .predict = function(task) {

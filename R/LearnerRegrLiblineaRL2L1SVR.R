@@ -37,7 +37,9 @@ LearnerRegrLiblineaRL2L1SVR = R6Class("LearnerRegrLiblineaRL2L1SVR",
         params = list(
           ParamDbl$new(id = "cost", default = 1, lower = 0, tags = "train"),
           ParamDbl$new(id = "bias", default = 1, tags = "train"),
-          ParamDbl$new(id = "svr_eps", default = NULL, special_vals = list(NULL), lower = 0, tags = "train"),
+          ParamDbl$new(
+            id = "svr_eps", default = NULL, special_vals = list(NULL),
+            lower = 0, tags = "train"),
           ParamInt$new(id = "cross", default = 0L, lower = 0L, tags = "train"),
           ParamLgl$new(id = "verbose", default = FALSE, tags = "train"),
           ParamLgl$new(id = "findC", default = FALSE, tags = "train"),

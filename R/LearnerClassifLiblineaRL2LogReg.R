@@ -13,7 +13,7 @@
 #' @export
 #' @template seealso_learner
 #' @template example
-LearnerClassifLiblineaRL2LogReg = R6Class("LearnerClassifLiblineaRL2LogReg",
+LearnerClassifLiblineaRL2LogReg = R6Class("LearnerClassifLiblineaRL2LogReg", # nolint
   inherit = LearnerClassif,
   public = list(
 

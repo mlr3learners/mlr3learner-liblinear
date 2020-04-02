@@ -33,12 +33,15 @@ LearnerRegrLiblineaRL2L2SVR = R6Class("LearnerRegrLiblineaRL2L2SVR",
     #' @description
     #' Creates a new instance of this [R6][R6::R6Class] class.
     initialize = function() {
+
       ps = ParamSet$new(
         params = list(
           ParamDbl$new(id = "cost", default = 1, lower = 0, tags = "train"),
           ParamDbl$new(id = "bias", default = 1, tags = "train"),
           ParamFct$new(id = "type", default = "11", levels = c("11", "12"), tags = "train"),
-          ParamDbl$new(id = "svr_eps", default = NULL, special_vals = list(NULL), lower = 0, tags = "train"),
+          ParamDbl$new(
+            id = "svr_eps", default = NULL, special_vals = list(NULL),
+            lower = 0, tags = "train"),
           ParamInt$new(id = "cross", default = 0L, lower = 0L, tags = "train"),
           ParamLgl$new(id = "verbose", default = FALSE, tags = "train"),
           ParamLgl$new(id = "findC", default = FALSE, tags = "train"),
