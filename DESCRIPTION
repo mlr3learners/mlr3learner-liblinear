@@ -1,6 +1,6 @@
 Package: mlr3learners.liblinear
 Title: Learners from LiblineaR package for mlr3
-Version: 0.2.0.9000
+Version: 0.2.0
 Authors@R:
     c(person(given = "Marc",
              family = "Becker",
@@ -20,12 +20,12 @@ Imports:
     data.table,
     mlr3,
     mlr3misc,
+    LiblineaR,
     paradox,
     R6
 Suggests:
     bibtex,
     checkmate,
-    LiblineaR,
     testthat
 RdMacros:
     mlr3misc
